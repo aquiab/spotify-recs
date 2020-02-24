@@ -1,0 +1,31 @@
+@import './colors.sass'
+
+#search-container
+  width: 50%
+
+#mapped-selects
+  margin-top: 0.5rem
+  min-height: 2.5rem
+
+#placeholder-text
+  margin-top: 1rem
+
+#search-bar
+  background-image: url('../assets/buscar.svg')
+  background-position: 12px 7px
+  background-repeat: no-repeat
+  padding-left: 45px
+  font-size: 1.3rem
+  height: 2.5rem
+  box-sizing: border-box
+  border: 2px solid #adadad
+  border-radius: 4px
+  &:focus
+    background-image: url('../assets/buscar2.svg')
+    border: 2px solid $pr-color
+    box-shadow: 0px 0px 2px 0px $pr-color
+    transition: all 0.1s ease
+
+@media only screen and (max-device-width: 475px)
+  #search-container
+    width: 85vw

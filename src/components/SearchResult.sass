@@ -1,0 +1,31 @@
+@import './colors.sass'
+  
+.search-result
+  height: 4.5rem
+  border-radius: 4px
+  align-items: center
+  user-select: none
+  &:hover
+    background-color: $hov-color
+    transition: all 0.2s ease
+    cursor: pointer
+    img
+      transform: scale(1.05)
+      transition: 0.2s
+  &:active
+    background-color: $hov-color
+  p
+    margin: 0 0 0 1.3rem !important
+  .artist-img
+    width: 3.7rem
+    height: 3.7rem
+    border-radius: 50%
+    margin-left: 5px
+    background-color: #333333
+  .track-img
+    width: 3.7rem
+    height: 3.7rem
+    margin-left: 5px
+    background-color: #333333
+  .rec-track-name
+    font-weight: 700
