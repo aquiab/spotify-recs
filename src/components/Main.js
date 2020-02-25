@@ -48,13 +48,13 @@ function Main() {
 			onClick={() => setSelectedArtists([...selectedArtists].filter(items => items.id !== item.id))} />))
 		if (selectedArtists.length > 2) {
 			let artistIds = selectedArtists.map(item => item.id)
-			axios.post('/artists/get-results', artistIds)
+			axios.post('/artists/get-results'/* 'http://localhost:3001/artists/get-results' */, artistIds)
 				.then(res => {
 					/* filter out tracks by selected artists*/
 					let tracks = res.data.filter(track => {
 						return !artistIds.includes(track.artist_id)
 					})
-					let slicedTracks = tracks.slice(0, 10)
+					let slicedTracks = tracks.slice(0, 8)
 					setRecs(slicedTracks)
 				})
 				.catch(err => {
@@ -71,7 +71,7 @@ function Main() {
 	}, [recs])
 
 	function sendQuery(searchQuery) {
-		axios.post('/artists/query', { searchQuery })
+		axios.post('/artists/query'/* 'http://localhost:3001/artists/query' */, { searchQuery })
 			.then(res => {
 				setResults(res.data)
 			})
@@ -108,7 +108,7 @@ function Main() {
 				} else {
 					return (
 						<div>
-							<p className='text-center text-muted' id='placeholder-text'>Please input at least 3 artists.</p>
+							<p className='text-center text-muted' id='placeholder-text'>To get recommendations, select at least 3 artists.</p>
 						</div>
 					)
 				}

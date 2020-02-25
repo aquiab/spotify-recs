@@ -9,7 +9,7 @@ function SearchResult(props) {
   return (
     <div className='search-result d-flex' onClick={props.onClick}>
       <img src={props.item.img_url} alt='' className='artist-img'></img>
-      <p>{artistName}</p>
+      <p className='artist-name'>{artistName}</p>
     </div>
   )
 }

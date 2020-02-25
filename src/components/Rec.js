@@ -1,5 +1,4 @@
 import React from "react"
-import './Rec.sass'
 import './SearchResult.sass'
 
 function Rec(props) {
@@ -7,14 +6,21 @@ function Rec(props) {
 	if (artistName.length > 25) {
 		artistName = artistName.substring(0, 25) + '...'
 	}
+	let trackName = props.item.track_name
+	if (trackName.length > 25) {
+		trackName = trackName.substring(0, 25) + '...'
+	}
 	return (
-		<div className='search-result d-flex'>
-			<img src={props.item.img_url} alt='' className='track-img'></img>
-			<div className='d-flex flex-column'>
-				<a href={props.item.track_url} target='_blank' rel="noopener noreferrer" className='rec-track-name'><p>{props.item.track_name}</p></a>
-				<a href={props.item.artist_url} target='_blank' rel="noopener noreferrer" className='rec-artist-name'><p>{artistName}</p></a>
+		<a href={props.item.track_url} target='_blank' rel="noopener noreferrer">
+			<div className='rec search-result d-flex'>
+				<img src={props.item.img_url} alt='' className='track-img'></img>
+				<div className='d-flex flex-column track-info'>
+					<p className='rec-track-name'>{trackName}</p>
+					<a href={props.item.artist_url} target='_blank' rel="noopener noreferrer"><p className='rec-artist-name'>{artistName}</p></a>
+				</div>
+				<div class='rec-arrow'></div>
 			</div>
-		</div>
+		</a >
 	)
 }
 

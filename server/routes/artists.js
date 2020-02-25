@@ -32,9 +32,8 @@ getAuth()
 setInterval(() => { getAuth() }, 3600000) /* token expires after 1 hr */
 
 router.post('/query', (req, res) => {
-	let query = req.body.searchQuery
-	console.log('got post: ' + query)
-	let url = 'https://api.spotify.com/v1/search?q=' + query + '&type=artist&markey=US&limit=6'
+	let query = encodeURI(req.body.searchQuery)
+	let url = 'https://api.spotify.com/v1/search?q=' + query + '&type=artist&markey=US&limit=8'
 	axios.get(url, {
 		headers: { 'Authorization': token }
 	}).then(response => {
@@ -61,7 +60,7 @@ router.post('/get-results', (req, res) => {
 		params: {
 			seed_artists: selectedArtists.toString(),
 			market: 'AR',
-			limit: 35
+			limit: 20
 		}
 	}).then(response => {
 		let tracks = response.data.tracks.map(track => {

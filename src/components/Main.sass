@@ -1,7 +1,7 @@
 @import './colors.sass'
 
 #search-container
-  width: 50%
+  width: 55%
 
 #mapped-selects
   margin-top: 0.5rem
@@ -20,12 +20,13 @@
   box-sizing: border-box
   border: 2px solid #adadad
   border-radius: 4px
+  outline: none
   &:focus
     background-image: url('../assets/buscar2.svg')
     border: 2px solid $pr-color
     box-shadow: 0px 0px 2px 0px $pr-color
     transition: all 0.1s ease
 
-@media only screen and (max-device-width: 475px)
+@media only screen and (max-device-width: 750px)
   #search-container
     width: 85vw
