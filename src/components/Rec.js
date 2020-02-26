@@ -3,13 +3,16 @@ import './SearchResult.sass'
 
 function Rec(props) {
 	let artistName = props.item.artist_name
-	if (artistName.length > 25) {
-		artistName = artistName.substring(0, 25) + '...'
-	}
 	let trackName = props.item.track_name
-	if (trackName.length > 25) {
-		trackName = trackName.substring(0, 25) + '...'
+	if (document.documentElement.clientWidth > 725){
+		if (artistName.length > 25) {
+			artistName = artistName.substring(0, 25) + '...'
+		}	
+		if (trackName.length > 25) {
+			trackName = trackName.substring(0, 25) + '...'
+		}
 	}
+
 	return (
 		<a href={props.item.track_url} target='_blank' rel="noopener noreferrer">
 			<div className='rec search-result d-flex'>
